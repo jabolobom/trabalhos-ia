@@ -78,9 +78,10 @@ while running:
     screen.fill(white)
     screen.blit(frames[frame_index], (pos_x, pos_y))
 
-    btn = pygame.Rect(x_btn, y_btn, btn_width, btn_height)
+    btn = pygame.Rect(x_btn // 2, y_btn // 2, btn_width, btn_height ) # botando no meio
     draw_bt(screen, gray, btn.topleft, btn.size, "EXITAR")
 
+    # !!!!
     if sprite_collision.colliderect(btn):
         if keys[pygame.K_RIGHT]:
             pos_x -= movement
@@ -90,7 +91,7 @@ while running:
             pos_y -= movement
         if keys[pygame.K_UP]:
             pos_y += movement
-    # empurra de volta o sprite quando encosta no botão
+    # COLISAO, EMPURRA O SPRITE PRO LADO CONTRÁRIO QUANDO COLIDE
 
     pygame.display.flip()
 
